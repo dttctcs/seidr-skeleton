@@ -14,3 +14,5 @@ app = Flask(__name__)
 app.config.from_object("config")
 db = SQLA(app)
 appbuilder = AppBuilder(app, db.session)
+
+from . import api

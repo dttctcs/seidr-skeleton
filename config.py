@@ -22,7 +22,7 @@ FAB_ADD_SECURITY_VIEWS = False
 # ------------------------------
 # GLOBALS FOR APP Builder
 # ------------------------------
-APP_NAME = "SEIDR-API"
+APP_NAME = "Seidr"
 
 # Uncomment to setup Setup an App icon
 # APP_ICON = "/static/img/logo.jpg"

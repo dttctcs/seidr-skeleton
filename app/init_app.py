@@ -18,7 +18,7 @@ class SeidrIndexView(IndexView):
 
     @expose("/<string:path>")
     @expose("/<path:path>")
-    def index(self, path):
+    def index_all(self, path):
         return self.render_template(self.index_template, appbuilder=self.appbuilder)
 
     @expose("/")

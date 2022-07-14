@@ -2,6 +2,8 @@ import logging
 
 from flask import Flask
 from flask_appbuilder import AppBuilder, SQLA, IndexView, expose
+from seidr import Seidr
+
 from . import config
 """
  Logging configuration
@@ -32,5 +34,4 @@ app.config.from_object(config)
 
 db = SQLA(app)
 appbuilder = AppBuilder(app, db.session, indexview=SeidrIndexView)
-
-from . import api
+seidr = Seidr(appbuilder)

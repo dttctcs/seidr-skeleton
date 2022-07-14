@@ -2,6 +2,8 @@ import logging
 
 from flask import Flask
 from flask_appbuilder import AppBuilder, SQLA
+from seidr import Seidr
+
 from . import config
 
 """
@@ -17,5 +19,5 @@ app.config.from_object(config)
 
 db = SQLA(app)
 appbuilder = AppBuilder(app, db.session)
+seidr = Seidr(appbuilder)
 
-from . import api

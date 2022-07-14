@@ -12,7 +12,7 @@ logging.getLogger().setLevel(logging.DEBUG)
 
 
 #  Create custom index view
-class MyIndexView(IndexView):
+class SeidrIndexView(IndexView):
     index_template = 'index.html'
     route_base = "/"
 
@@ -31,6 +31,6 @@ app = Flask(__name__)
 app.config.from_object("config")
 
 db = SQLA(app)
-appbuilder = AppBuilder(app, db.session, indexview=MyIndexView)
+appbuilder = AppBuilder(app, db.session, indexview=SeidrIndexView)
 
 from . import api

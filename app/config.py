@@ -23,7 +23,7 @@ FAB_ADD_SECURITY_VIEWS = False
 # GLOBALS FOR APP Builder
 # ------------------------------
 APP_NAME = "Seidr"
-
+WEBAPP = False
 # Uncomment to setup Setup an App icon
 # APP_ICON = "/static/img/logo.jpg"
 

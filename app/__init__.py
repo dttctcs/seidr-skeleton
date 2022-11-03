@@ -28,7 +28,7 @@ index = SeidrIndexView if app.config.get("WEBAPP") else IndexView
 appbuilder = AppBuilder(
     app=app,
     session=db.session,
-    indexview=index,
+    indexview=SeidrIndexView,
 )
 
 seidr = Seidr(appbuilder)

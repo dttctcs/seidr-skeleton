@@ -5,7 +5,6 @@ import { useSeidrAuth } from 'seidr-react';
 import { AppShell, Drawer } from '@mantine/core';
 import { Outlet, Navigate } from 'react-router-dom';
 
-import SettingsPage from 'features/settings/SettingsPage';
 import Header from 'common/Header';
 
 // selectedTab, from column 23 deleted

@@ -22,7 +22,7 @@ RUN apt-get update && apt-get install -y build-essential libpq-dev ca-certificat
 
 FROM python:3
 
-ENV APP_HOME /app
+ENV APP_HOME /seidr
 ENV PATH $PATH:$APP_HOME
 ENV PYTHONUNBUFFERED=1
 

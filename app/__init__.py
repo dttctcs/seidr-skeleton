@@ -19,8 +19,6 @@ app.config.from_object(config)
 app.config.from_pyfile('../dev_config.py', silent=True)
 app.config.from_envvar('APP_CONFIG_PATH', silent=True)
 
-celery = make_celery()
-
 db = SQLA(app)
 migrate = Migrate(app, db)
 

@@ -7,7 +7,8 @@ from flask_migrate import Migrate
 from seidr import Seidr, SeidrIndexView
 import app.config
 import sys
-
+import os
+USER = os.getenv('API_USER')
 
 logging.basicConfig(format="%(asctime)s:%(levelname)s:%(name)s:%(message)s")
 logging.getLogger().setLevel(logging.DEBUG)
@@ -23,12 +24,12 @@ db = SQLA(app)
 migrate = Migrate(app, db)
 
 
-index = SeidrIndexView if app.config.get("WEBAPP") else IndexView
+index = SeidrIndexView if os.getenv('SEIDR_INDEX_VIEW', "FALSE") == "TRUE" else IndexView
 
 appbuilder = AppBuilder(
     app=app,
     session=db.session,
-    indexview=SeidrIndexView,
+    indexview=index,
 )
 
 seidr = Seidr(appbuilder)

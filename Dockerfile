@@ -35,5 +35,6 @@ COPY --from=build-webapp /build/build $APP_HOME/app
 COPY --from=build  /install /usr/local
 
 ENV PYTHONUNBUFFERED=1
+ENV SEIDR_INDEX_VIEW=TRUE
 
 CMD ["gunicorn", "--bind=:8080", "app:app"]

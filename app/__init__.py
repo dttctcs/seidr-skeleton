@@ -1,14 +1,11 @@
 import logging
 
 from flask import Flask
-from flask_appbuilder import AppBuilder, SQLA, Model, IndexView
-from flask_appbuilder.menu import Menu
+from flask_appbuilder import AppBuilder, SQLA, IndexView
 from flask_migrate import Migrate
 from seidr import Seidr, SeidrIndexView
 import app.config
-import sys
 import os
-USER = os.getenv('API_USER')
 
 logging.basicConfig(format="%(asctime)s:%(levelname)s:%(name)s:%(message)s")
 logging.getLogger().setLevel(logging.DEBUG)
@@ -23,15 +20,10 @@ app.config.from_envvar('APP_CONFIG_PATH', silent=True)
 db = SQLA(app)
 migrate = Migrate(app, db)
 
-
-index = SeidrIndexView if os.getenv('SEIDR_INDEX_VIEW', "FALSE") == "TRUE" else IndexView
-
 appbuilder = AppBuilder(
     app=app,
     session=db.session,
-    indexview=index,
+    indexview=SeidrIndexView if os.getenv('SEIDR_INDEX_VIEW', "FALSE") == "TRUE" else IndexView
 )
 
 seidr = Seidr(appbuilder)
-
-

@@ -1,7 +1,6 @@
-//import { useState } from 'react';
-import { createStyles, Image, Header, Group, Box, Text, Title } from '@mantine/core';
-//import { useDisclosure } from '@mantine/hooks';
+import { createStyles, Header, Group, Box, Text, Title } from '@mantine/core';
 import { useLocation, Link } from 'react-router-dom';
+
 import UserMenu from 'features/auth/user/UserMenu';
 
 const HEADER_HEIGHT = 84;
@@ -77,12 +76,11 @@ const useStyles = createStyles((theme) => ({
 }));
 
 export default function CustomHeader() {
-  // const [opened, { toggle }] = useDisclosure(false);
   const { classes, cx } = useStyles();
   const location = useLocation();
 
   const mainLinks = [
-    { link: '/', label: 'Demo' },
+    { link: '/demo', label: 'Demo' },
   ];
 
   const mainItems = mainLinks.map((item, index) => (
@@ -102,14 +100,14 @@ export default function CustomHeader() {
       <Box className={classes.inner}>
         <Box className={classes.left}>
           <Box sx={{ display: 'flex', justifyContent: 'flex-start', flexDirection: 'column', paddingLeft: '20px' }}>
-            <Title sx={{ fontSize: '18px', paddingBottom: '5px' }}>Seidr</Title>
+            <Title sx={{ fontSize: '18px', paddingBottom: '5px' }}>{process.env.REACT_APP_NAME}</Title>
             <Box sx={{ display: 'flex' }}>
-              
+
               <Text>Skeleton App</Text>
             </Box>
           </Box>
         </Box>
-        <Group spacing={0} position="right" className={classes.mainLinks}>
+        <Group spacing={0} position='right' className={classes.mainLinks}>
           {mainItems}
           <UserMenu />
         </Group>

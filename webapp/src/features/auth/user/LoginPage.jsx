@@ -1,8 +1,7 @@
 import { Navigate } from 'react-router-dom';
 import { useSeidrAuth } from 'seidr-react';
 import { useForm } from '@mantine/form';
-
-import { Alert, Box, Image, Button, Group, Paper, PasswordInput, Stack, Text, TextInput } from '@mantine/core';
+import { Alert, Box, Button, Group, Paper, PasswordInput, Stack, Text, TextInput } from '@mantine/core';
 
 export default function LoginPage(props) {
   const passwordMinLength = 5;
@@ -15,7 +14,7 @@ export default function LoginPage(props) {
     },
 
     validate: {
-      password: (val) => (val.length < passwordMinLength ? 'Password should include at least 5 characters' : null),
+      password: (val) => (val.length < passwordMinLength ? `Password should include at least ${passwordMinLength} characters` : null),
     },
   });
 
@@ -24,7 +23,7 @@ export default function LoginPage(props) {
   };
 
   if (user) {
-    return <Navigate to="/" />;
+    return <Navigate to='/' />;
   }
 
   return (
@@ -32,12 +31,12 @@ export default function LoginPage(props) {
       sx={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}
     >
       <Box sx={{ display: 'flex', alignItems: 'center', paddingBottom: 20 }}>
-        <Text size="xl" weight={500}>
-          Seidr React Login
+        <Text size='xl' weight={500}>
+          {process.env.REACT_APP_NAME} Login
         </Text>
       </Box>
-      <Paper radius="md" p="xl" withBorder {...props}>
-        <Text size="lg" weight={500}>
+      <Paper radius='md' p='xl' withBorder {...props}>
+        <Text size='lg' weight={500}>
           LOGIN
         </Text>
 
@@ -45,8 +44,8 @@ export default function LoginPage(props) {
           <Stack>
             <TextInput
               required
-              label="Name"
-              placeholder="Username"
+              label='Name'
+              placeholder='Username'
               value={form.values.username}
               onChange={(event) => form.setFieldValue('username', event.currentTarget.value)}
               error={form.errors.username && 'Invalid username'}
@@ -54,21 +53,21 @@ export default function LoginPage(props) {
 
             <PasswordInput
               required
-              label="Password"
-              placeholder="Your password"
+              label='Password'
+              placeholder='Your password'
               value={form.values.password}
               onChange={(event) => form.setFieldValue('password', event.currentTarget.value)}
               error={form.errors.password && `Password should include at least ${passwordMinLength} characters`}
             />
           </Stack>
 
-          <Group position="apart" mt="xl">
+          <Group position='apart' mt='xl'>
             {error ? (
-              <Alert sx={{ flex: 1 }} title="Bummer!" color="red">
+              <Alert sx={{ flex: 1 }} title='Bummer!' color='red'>
                 {error}
               </Alert>
             ) : null}
-            <Button type="submit" loading={loading} fullWidth>
+            <Button type='submit' loading={loading} fullWidth>
               Login
             </Button>
           </Group>

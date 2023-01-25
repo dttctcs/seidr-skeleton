@@ -1,25 +1,10 @@
-import React from 'react';
-import { useSeidrAuth } from 'seidr-react';
-
-// Components:
-import { AppShell, Drawer } from '@mantine/core';
-import { Outlet, Navigate } from 'react-router-dom';
+import { AppShell } from '@mantine/core';
+import { Outlet } from 'react-router-dom';
 
 import Header from 'common/Header';
 
-// selectedTab, from column 23 deleted
-
-export default function MainPage() {
-  const { user, loading } = useSeidrAuth();
-
-
-  if (loading) {
-    return null;
-  }
-
-  return !user ? (
-    <Navigate to="/login" />
-  ) : (
+export default function MainFrame() {
+  return (
     <AppShell
       padding={0}
       header={<Header />}

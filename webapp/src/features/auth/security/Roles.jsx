@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Paper } from '@mantine/core';
 import { DataGrid, SeidrApiProvider } from 'seidr-react';
 

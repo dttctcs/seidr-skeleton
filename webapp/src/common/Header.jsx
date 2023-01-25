@@ -102,8 +102,7 @@ export default function CustomHeader() {
           <Box sx={{ display: 'flex', justifyContent: 'flex-start', flexDirection: 'column', paddingLeft: '20px' }}>
             <Title sx={{ fontSize: '18px', paddingBottom: '5px' }}>{process.env.REACT_APP_NAME}</Title>
             <Box sx={{ display: 'flex' }}>
-
-              <Text>Skeleton App</Text>
+              <Text>{process.env.REACT_APP_VERSION}</Text>
             </Box>
           </Box>
         </Box>

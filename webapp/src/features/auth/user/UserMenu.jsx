@@ -1,9 +1,17 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSeidrAuth } from 'seidr-react';
 
 import { Group, Menu, Text, UnstyledButton, createStyles } from '@mantine/core';
-import { IconUserCheck, IconAppWindow, IconIdBadge2, IconLock, IconLogout, IconUser, IconUsers } from '@tabler/icons';
+import {
+  IconUserCheck,
+  IconAppWindow,
+  IconIdBadge2,
+  IconLock,
+  IconLogout,
+  IconUser,
+  IconUsers,
+} from '@tabler/icons-react';
 
 const useStyles = createStyles((theme) => ({
   header: {
@@ -47,7 +55,7 @@ export default function UserMenu() {
     { path: basePath + '/users', label: 'Users', name: 'UsersApi', Icon: IconUsers },
     { path: basePath + '/roles', label: 'Roles', name: 'RolesApi', Icon: IconIdBadge2 },
     { path: basePath + '/permissions', label: 'Base Permissions', name: 'PermissionsApi', Icon: IconLock },
-    { path: basePath + '/permissionviews', label: 'Permission on Views', name: 'PermissionViewApi', Icon: IconLock },
+    { path: basePath + '/permissionview', label: 'Permission on Views', name: 'PermissionViewApi', Icon: IconLock },
     { path: basePath + '/viewsmenus', label: 'Views/Menus', name: 'ViewsMenusApi', Icon: IconAppWindow },
   ];
 
@@ -56,15 +64,15 @@ export default function UserMenu() {
   return (
     <Menu
       width={260}
-      position="bottom-end"
-      transition="pop-top-right"
+      position='bottom-end'
+      transition='pop-top-right'
       onClose={() => setUserMenuOpened(false)}
       onOpen={() => setUserMenuOpened(true)}
     >
       <Menu.Target sx={{ height: 50, width: 50, marginRight: 30, marginLeft: 20, paddingLeft: '5px' }}>
         <UnstyledButton className={cx(classes.user, { [classes.userActive]: userMenuOpened })}>
           <Group sx={{ width: 40, height: 40 }} spacing={7}>
-            <Text weight={500} size="sm" sx={{ lineHeight: 1 }} mr={0}>
+            <Text weight={500} size='sm' sx={{ lineHeight: 1 }} mr={0}>
               <Menu.Item
                 sx={{
                   backgroundColor: 'white !important',
@@ -74,7 +82,7 @@ export default function UserMenu() {
 
                   '& .mantine-Menu-item': {},
                 }}
-                icon={<IconUserCheck size={20} color="#0F1F54" stroke={2} />}
+                icon={<IconUserCheck size={20} color='#0F1F54' stroke={2} />}
               ></Menu.Item>
             </Text>
           </Group>

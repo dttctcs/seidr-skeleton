@@ -48,6 +48,7 @@ export default function UserMenu() {
   const navigate = useNavigate();
   const { user, signout } = useSeidrAuth();
   const { classes, cx } = useStyles();
+  const iconSize = 14;
   const [userMenuOpened, setUserMenuOpened] = useState(false);
 
   const basePath = '/security';
@@ -79,30 +80,29 @@ export default function UserMenu() {
                   width: 40,
                   height: 40,
                   borderRadius: 100,
-
                   '& .mantine-Menu-item': {},
                 }}
-                icon={<IconUserCheck size={20} color='#0F1F54' stroke={2} />}
-              ></Menu.Item>
+                icon={<IconUserCheck color='#0F1F54' />}
+              />
             </Text>
           </Group>
         </UnstyledButton>
       </Menu.Target>
       <Menu.Dropdown>
         <Menu.Label>Security</Menu.Label>
-        {availableRoutes.map((route, index) => {
-          return (
-            <Menu.Item key={index} icon={<route.Icon size={16} stroke={1.5} />} onClick={() => navigate(route.path)}>
-              {route.label}
-            </Menu.Item>
-          );
-        })}
-
+        {
+          availableRoutes.map((route, index) => {
+            return (
+              <Menu.Item key={index} icon={<route.Icon size={iconSize} />} onClick={() => navigate(route.path)}>
+                {route.label}
+              </Menu.Item>
+            );
+          })
+        }
         <Menu.Divider />
-
         <Menu.Label>User</Menu.Label>
-        <Menu.Item icon={<IconUser size={14} stroke={1.5} />}>Profile</Menu.Item>
-        <Menu.Item icon={<IconLogout size={14} stroke={1.5} />} onClick={signout}>
+        <Menu.Item icon={<IconUser size={iconSize} />}>Profile</Menu.Item>
+        <Menu.Item icon={<IconLogout size={iconSize} />} onClick={signout}>
           Logout
         </Menu.Item>
       </Menu.Dropdown>

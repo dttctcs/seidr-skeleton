@@ -21,7 +21,7 @@ export default function App() {
       <Route path='/' element={<Wrapper />}>
         <Route path='/demo' element={<Demo />} />
         <Route path='/security/permissions' element={<Permissions />} />
-        <Route path='/security/permissionview' element={<PermissionView />} />
+        <Route path='/security/permissionviews' element={<PermissionView />} />
         <Route path='/security/users' element={<Users />} />
         <Route path='/security/roles' element={<Roles />} />
         <Route path='/security/viewsmenus' element={<ViewsMenus />} />

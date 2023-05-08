@@ -56,7 +56,7 @@ export default function UserMenu() {
     { path: basePath + '/users', label: 'Users', name: 'UsersApi', Icon: IconUsers },
     { path: basePath + '/roles', label: 'Roles', name: 'RolesApi', Icon: IconIdBadge2 },
     { path: basePath + '/permissions', label: 'Base Permissions', name: 'PermissionsApi', Icon: IconLock },
-    { path: basePath + '/permissionview', label: 'Permission on Views', name: 'PermissionViewApi', Icon: IconLock },
+    { path: basePath + '/permissionviews', label: 'Permission on Views', name: 'PermissionViewApi', Icon: IconLock },
     { path: basePath + '/viewsmenus', label: 'Views/Menus', name: 'ViewsMenusApi', Icon: IconAppWindow },
   ];
 
